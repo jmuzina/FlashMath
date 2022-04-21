@@ -65,14 +65,28 @@
                     <view key="view" contentMode="scaleToFill" id="GJL-7J-cYT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yCl-Cu-F9K">
+                                <rect key="frame" x="86" y="495" width="242" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="cc-number"/>
+                                <connections>
+                                    <action selector="answerChanged:" destination="jvg-jc-jqQ" eventType="editingChanged" id="iau-dv-350"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ymT-B3-GFn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="9Ec-S0-0TL"/>
+                    <connections>
+                        <outlet property="currentAnswerRef" destination="yCl-Cu-F9K" id="Agk-oy-3p4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5x-ah-4rL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="-504"/>
+            <point key="canvasLocation" x="1624.6376811594205" y="-504.24107142857139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fdx-YV-mRc">

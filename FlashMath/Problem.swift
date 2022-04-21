@@ -47,6 +47,15 @@ class SubtractionProblem : Problem {
     }
 }
 
+class MultiplicationProblem : Problem {
+    override init() {
+        super.init()
+    }
+    override func solve() -> Int {
+        return lhs * rhs
+    }
+}
+
 class DivisionProblem : Problem {
     override init() {
         super.init()

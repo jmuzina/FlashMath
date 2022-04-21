@@ -18,6 +18,7 @@ class StartViewController: UIViewController {
     // Operator
     @IBOutlet weak var operatorChoice: UISegmentedControl!
     @IBAction func operatorChoice(_ sender: UISegmentedControl) {
+        gameVC?.opChoice = sender.selectedSegmentIndex
     }
     
     override func viewDidLoad() {
