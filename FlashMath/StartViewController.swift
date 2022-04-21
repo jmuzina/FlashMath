@@ -8,18 +8,12 @@
 import UIKit
 
 class StartViewController: UIViewController {
-
-    
     
     // Game Time
     @IBOutlet weak var gameTime: UISegmentedControl!
-    @IBAction func gameTime(_ sender: UISegmentedControl) {
-    }
     
     // Operator
     @IBOutlet weak var operatorChoice: UISegmentedControl!
-    @IBAction func operatorChoice(_ sender: UISegmentedControl) {
-    }
     
     // Start Game Button
     @IBOutlet weak var startGame: UIButton!
@@ -30,8 +24,10 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //Model()
+        //singleton!.hello = 1
     }
 
-
+    var hello :  Int = 0
 }
 

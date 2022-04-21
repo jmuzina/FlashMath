@@ -15,15 +15,43 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(true)
+        //print(singleton!.hello)
     }
-    */
 
+    
+    func startGame() {
+        print("starting game")
+    }
+    
+    func endGame() {
+        print("ending game")
+    }
+    
+    @objc func tick() {
+        timeLeft -= 1
+        print(timeLeft)
+        if (timeLeft <= 0) {
+            print("out of time")
+            endGame()
+        }
+    }
+    
+    func resetTimer() {
+        if (gameTimer != nil) {
+            gameTimer?.invalidate()
+        }
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+    }
+    
+    /*
+    timeLeft = timeLimits[sender.selectedSegmentIndex]
+    print("selected time limit " + String(timeLeft))
+    resetTimer()
+    startGame()
+    */
+    var gameTimer : Timer? = nil
+    var timeLeft : Int = 0
+    let timeLimits : [Int] = [30, 60, 90]
 }

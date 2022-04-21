@@ -40,7 +40,7 @@
                                     <segment title="90"/>
                                 </segments>
                                 <connections>
-                                    <action selector="gameTime:" destination="BYZ-38-t0r" eventType="valueChanged" id="el6-H0-jyU"/>
+                                    <action selector="timeLimitChanged:" destination="m7e-Wg-SxX" eventType="valueChanged" id="KTr-WE-HUg"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nh-H0-qAJ">
@@ -58,12 +58,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="gameTime" destination="CCl-36-4W7" id="1GZ-cy-l4b"/>
                         <outlet property="operatorChoice" destination="0xf-5g-HR4" id="QHa-rl-Rf5"/>
                         <outlet property="startGame" destination="1Nh-H0-qAJ" id="WRH-il-8xG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="m7e-Wg-SxX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-23" y="57"/>
         </scene>
