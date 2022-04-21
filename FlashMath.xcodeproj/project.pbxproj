@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47AC4FBD2811C75300A1D1B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AC4FBC2811C75300A1D1B8 /* GameViewController.swift */; };
+		47AC4FBF2811CC4600A1D1B8 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AC4FBE2811CC4600A1D1B8 /* Problem.swift */; };
 		CE4006B327ECFF7C00404F68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4006B227ECFF7C00404F68 /* AppDelegate.swift */; };
 		CE4006B527ECFF7C00404F68 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4006B427ECFF7C00404F68 /* SceneDelegate.swift */; };
-		CE4006B727ECFF7C00404F68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4006B627ECFF7C00404F68 /* ViewController.swift */; };
+		CE4006B727ECFF7C00404F68 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4006B627ECFF7C00404F68 /* StartViewController.swift */; };
 		CE4006BA27ECFF7C00404F68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4006B827ECFF7C00404F68 /* Main.storyboard */; };
 		CE4006BC27ECFF7E00404F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4006BB27ECFF7E00404F68 /* Assets.xcassets */; };
 		CE4006BF27ECFF7E00404F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4006BD27ECFF7E00404F68 /* LaunchScreen.storyboard */; };
@@ -17,10 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47AC4FBC2811C75300A1D1B8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		47AC4FBE2811CC4600A1D1B8 /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		CE4006AF27ECFF7C00404F68 /* FlashMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4006B227ECFF7C00404F68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4006B427ECFF7C00404F68 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE4006B627ECFF7C00404F68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE4006B627ECFF7C00404F68 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		CE4006B927ECFF7C00404F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE4006BB27ECFF7E00404F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4006BE27ECFF7E00404F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,7 +64,9 @@
 			children = (
 				CE4006B227ECFF7C00404F68 /* AppDelegate.swift */,
 				CE4006B427ECFF7C00404F68 /* SceneDelegate.swift */,
-				CE4006B627ECFF7C00404F68 /* ViewController.swift */,
+				CE4006B627ECFF7C00404F68 /* StartViewController.swift */,
+				47AC4FBE2811CC4600A1D1B8 /* Problem.swift */,
+				47AC4FBC2811C75300A1D1B8 /* GameViewController.swift */,
 				CE4006B827ECFF7C00404F68 /* Main.storyboard */,
 				CE4006BB27ECFF7E00404F68 /* Assets.xcassets */,
 				CE4006BD27ECFF7E00404F68 /* LaunchScreen.storyboard */,
@@ -141,8 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC4FBD2811C75300A1D1B8 /* GameViewController.swift in Sources */,
+				47AC4FBF2811CC4600A1D1B8 /* Problem.swift in Sources */,
 				CE86F47127ED00E600D273FC /* Utility.swift in Sources */,
-				CE4006B727ECFF7C00404F68 /* ViewController.swift in Sources */,
+				CE4006B727ECFF7C00404F68 /* StartViewController.swift in Sources */,
 				CE4006B327ECFF7C00404F68 /* AppDelegate.swift in Sources */,
 				CE4006B527ECFF7C00404F68 /* SceneDelegate.swift in Sources */,
 			);
