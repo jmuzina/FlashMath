@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="upD-0s-ahh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Start View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="FlashMath" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,34 +40,25 @@
                                     <segment title="90"/>
                                 </segments>
                                 <connections>
-                                    <action selector="timeLimitChanged:" destination="m7e-Wg-SxX" eventType="valueChanged" id="KTr-WE-HUg"/>
+                                    <action selector="gameTimeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="b6d-NA-oht"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nh-H0-qAJ">
-                                <rect key="frame" x="174" y="686" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5yt-gb-qfl"/>
-                                    <segue destination="jvg-jc-jqQ" kind="presentation" modalPresentationStyle="fullScreen" id="V9X-BJ-TOS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="qEo-sm-Nc9"/>
+                    <navigationItem key="navigationItem" id="lBP-OD-pCK"/>
                     <connections>
+                        <outlet property="gameTime" destination="CCl-36-4W7" id="pbx-9y-haB"/>
                         <outlet property="operatorChoice" destination="0xf-5g-HR4" id="QHa-rl-Rf5"/>
-                        <outlet property="startGame" destination="1Nh-H0-qAJ" id="WRH-il-8xG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="m7e-Wg-SxX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="57"/>
+            <point key="canvasLocation" x="1625" y="-1191"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Item-->
         <scene sceneID="BLr-ER-y38">
             <objects>
                 <viewController id="jvg-jc-jqQ" customClass="GameViewController" customModule="FlashMath" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,10 +68,29 @@
                         <viewLayoutGuide key="safeArea" id="ymT-B3-GFn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="9Ec-S0-0TL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5x-ah-4rL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="58"/>
+            <point key="canvasLocation" x="1625" y="-504"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fdx-YV-mRc">
+            <objects>
+                <tabBarController id="upD-0s-ahh" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4GR-5z-Lp7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TBg-jX-aDW"/>
+                        <segue destination="jvg-jc-jqQ" kind="relationship" relationship="viewControllers" id="7gP-6H-IeG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uTD-4n-h4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="-852"/>
         </scene>
     </scenes>
     <resources>

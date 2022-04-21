@@ -8,26 +8,24 @@
 import UIKit
 
 class StartViewController: UIViewController {
-    
     // Game Time
     @IBOutlet weak var gameTime: UISegmentedControl!
+    @IBAction func gameTimeChanged(_ sender: UISegmentedControl) {
+        gameVC!.gameTimeChoice = gameVC!.timeLimits[sender.selectedSegmentIndex]
+    }
+    
     
     // Operator
     @IBOutlet weak var operatorChoice: UISegmentedControl!
-    
-    // Start Game Button
-    @IBOutlet weak var startGame: UIButton!
-    @IBAction func startGame(_ sender: UIButton) {
+    @IBAction func operatorChoice(_ sender: UISegmentedControl) {
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //Model()
-        //singleton!.hello = 1
+        gameTime.selectedSegmentIndex = 1
+        gameVC = self.tabBarController?.viewControllers![1] as? GameViewController
     }
-
-    var hello :  Int = 0
+    
+    var gameVC:GameViewController?
+    
 }
-

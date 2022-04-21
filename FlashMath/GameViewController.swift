@@ -9,15 +9,20 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    var startVC: StartViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        startVC = self.tabBarController?.viewControllers![0] as? StartViewController
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        timeLeft = gameTimeChoice
+
+        resetTimer()
+        startGame()
+    }
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(true)
-        //print(singleton!.hello)
+        super.viewWillAppear(true)
     }
 
     
@@ -27,6 +32,9 @@ class GameViewController: UIViewController {
     
     func endGame() {
         print("ending game")
+        if (gameTimer != nil) {
+            gameTimer?.invalidate()
+        }
     }
     
     @objc func tick() {
@@ -54,4 +62,6 @@ class GameViewController: UIViewController {
     var gameTimer : Timer? = nil
     var timeLeft : Int = 0
     let timeLimits : [Int] = [30, 60, 90]
+    var gameTimeChoice: Int = 60
+    var opChoice = Int()
 }
