@@ -11,7 +11,9 @@ class StartViewController: UIViewController {
     // Game Time
     @IBOutlet weak var gameTime: UISegmentedControl!
     @IBAction func gameTimeChanged(_ sender: UISegmentedControl) {
-        gameVC!.gameTimeChoice = gameVC!.timeLimits[sender.selectedSegmentIndex]
+        //gameVC!.gameTimeChoice = gameVC!.timeLimits[sender.selectedSegmentIndex]
+        gameVC!.gameTimeChoice = sender.selectedSegmentIndex
+        gameVC?.gameLength = gameVC!.timeLimits[gameVC!.gameTimeChoice]
     }
     
     
