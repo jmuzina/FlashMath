@@ -135,6 +135,15 @@ class GameViewController: UIViewController {
         
         
     }
+    
+    
+    
+    @IBAction func backButton(_ sender: Any) {
+        gameTimer?.invalidate()
+    }
+    
+    
+    
     var gameTimer : Timer? = nil
     var timeLeft : Int = 0
     let timeLimits : [Int] = [5, 60, 90]
