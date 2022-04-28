@@ -9,8 +9,8 @@ import UIKit
 
 class GameManager: NSObject {
     private var items = [Item]()
-    func addItem(matches : Int) {
-        let item = Item(score:matches)
+    func addItem(matches : Int, diff : String) {
+        let item = Item(score:matches, difficulty: diff)
         items.append(item)
 
         items.sort{

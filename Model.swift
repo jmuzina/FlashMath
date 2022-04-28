@@ -18,9 +18,6 @@ class Model {
         }
         return singleton!
     }
-    
-    var hello: Int = 0
-    //static var singleton:Model? = nil
 }
 
 var singleton: Model?

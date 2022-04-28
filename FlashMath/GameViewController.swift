@@ -61,7 +61,7 @@ class GameViewController: UIViewController {
         }
         setLabelVisibility(isGameOver: !(startVC?.gameInProgress)!)
         
-        startVC?.gameManagers![(startVC!.gameTimeChoice)][startVC!.opChoice].addItem(matches: startVC!.correct)
+        startVC?.gameManagers![(startVC!.gameTimeChoice)][startVC!.opChoice].addItem(matches: startVC!.correct, diff: startVC!.difficultyStrings[startVC!.difficultyChoice])
     }
     
     func createProblem() {

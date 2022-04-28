@@ -9,4 +9,5 @@ import Foundation
 
 struct Item {
     var score : Int
+    var difficulty : String
 }

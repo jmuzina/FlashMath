@@ -31,6 +31,11 @@ class StartViewController: UIViewController {
         print("Operator changed", String(opChoice))
     }
     
+    @IBOutlet weak var diffChoice: UISegmentedControl!
+    @IBAction func diffChoice(_ sender: UISegmentedControl) {
+        difficultyChoice = sender.selectedSegmentIndex
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         operatorChoice.selectedSegmentIndex = 1
@@ -52,6 +57,8 @@ class StartViewController: UIViewController {
     var gameTimeChoice: Int = 0
     var gameLength: Int = 60
     var opChoice = Int()
+    var difficultyChoice = Int()
+    let difficultyStrings : [String] = ["Easy", "Hard"]
     var gameInProgress : Bool = false
     var prob : Problem?
     var gameManagers : [[GameManager]]?
