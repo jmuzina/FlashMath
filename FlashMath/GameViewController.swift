@@ -66,24 +66,25 @@ class GameViewController: UIViewController {
     
     func createProblem() {
         //var prob : Problem?
+        let maxRange = startVC?.difficultyMaxes[startVC!.difficultyChoice]
         switch(startVC?.opChoice) {
         case 0:
-            startVC?.prob = AdditionProblem()
+            startVC?.prob = AdditionProblem(maxInt: maxRange!)
             opLabel.text = "+"
         case 1:
-            startVC?.prob = SubtractionProblem()
+            startVC?.prob = SubtractionProblem(maxInt: maxRange!)
             opLabel.text = "-"
         case 2:
-            startVC?.prob = MultiplicationProblem()
+            startVC?.prob = MultiplicationProblem(maxInt: maxRange!)
             opLabel.text = "*"
         case 3:
-            startVC?.prob = DivisionProblem()
+            startVC?.prob = DivisionProblem(maxInt: maxRange!)
             opLabel.text = "/"
         case 4:
-            startVC?.prob = ModulusProblem()
+            startVC?.prob = ModulusProblem(maxInt: maxRange!)
             opLabel.text = "%"
         default:
-            startVC?.prob = AdditionProblem()
+            startVC?.prob = AdditionProblem(maxInt: maxRange!)
             opLabel.text = "+"
             break
         }

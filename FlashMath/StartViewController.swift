@@ -38,7 +38,6 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        operatorChoice.selectedSegmentIndex = 1
         // gameVC = self.tabBarController?.viewControllers![1] as? GameViewController
     }
     
@@ -59,6 +58,7 @@ class StartViewController: UIViewController {
     var opChoice = Int()
     var difficultyChoice = Int()
     let difficultyStrings : [String] = ["Easy", "Hard"]
+    let difficultyMaxes : [Int] = [9, 13]
     var gameInProgress : Bool = false
     var prob : Problem?
     var gameManagers : [[GameManager]]?
