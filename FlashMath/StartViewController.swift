@@ -12,23 +12,49 @@ class StartViewController: UIViewController {
     @IBOutlet weak var gameTime: UISegmentedControl!
     @IBAction func gameTimeChanged(_ sender: UISegmentedControl) {
         //gameVC!.gameTimeChoice = gameVC!.timeLimits[sender.selectedSegmentIndex]
-        gameVC!.gameTimeChoice = sender.selectedSegmentIndex
-        gameVC?.gameLength = gameVC!.timeLimits[gameVC!.gameTimeChoice]
+        
+        gameTimeChoice = sender.selectedSegmentIndex
+        gameLength = timeLimits[gameTimeChoice]
+        print("Time changed to", String(gameLength))
+        
     }
     
     
     // Operator
     @IBOutlet weak var operatorChoice: UISegmentedControl!
     @IBAction func operatorChoice(_ sender: UISegmentedControl) {
-        gameVC?.opChoice = sender.selectedSegmentIndex
+        
+        opChoice = sender.selectedSegmentIndex
+        print("Operator changed", String(opChoice))
+        
+        opChoice = sender.selectedSegmentIndex
+        print("Operator changed", String(opChoice))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameTime.selectedSegmentIndex = 1
-        gameVC = self.tabBarController?.viewControllers![1] as? GameViewController
+        operatorChoice.selectedSegmentIndex = 1
+        // gameVC = self.tabBarController?.viewControllers![1] as? GameViewController
     }
     
-    var gameVC:GameViewController?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // The destination view controller exists at this point
+        print("StartScene \(#function)", segue.destination)
+        
+        let dest = segue.destination as! GameViewController
+        dest.startVC = self
+         
+    }
+        
+    var gameTimer : Timer? = nil
+    var timeLeft : Int = 0
+    let timeLimits : [Int] = [5, 60, 90]
+    var gameTimeChoice: Int = 0
+    var gameLength: Int = 60
+    var opChoice = Int()
+    var gameInProgress : Bool = false
+    var prob : Problem?
+    var gameManagers : [[GameManager]]?
+    var correct : Int = 0
     
 }

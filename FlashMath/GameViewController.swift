@@ -10,21 +10,23 @@ import UIKit
 class GameViewController: UIViewController {
 
     var startVC: StartViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        startVC = self.tabBarController?.viewControllers![0] as? StartViewController
-        gameManagers = [[GameManager]]()
-        for (var i) in 0..<timeLimits.count {
-            gameManagers?.append([GameManager]())
+        //startVC = self.tabBarController?.viewControllers![0] as? StartViewController
+        startVC?.gameManagers = [[GameManager]]()
+        let numLimits: Int = (startVC?.timeLimits.count)!
+        for (var i) in 0..<numLimits {
+            startVC?.gameManagers?.append([GameManager]())
             for (var j) in 0..<5 {
-                gameManagers![i].append(GameManager())
+                startVC?.gameManagers![i].append(GameManager())
                 
             }
         }
     }
     override func viewDidAppear(_ animated: Bool) {
-        timeLeft = gameLength
+        startVC?.timeLeft = startVC!.gameLength
         startGame()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +35,12 @@ class GameViewController: UIViewController {
 
     
     func startGame() {
-        correct = 0
+        startVC?.correct = 0
         resetTimer()
-        gameInProgress = true
-        timerLabel.text = "Time Remaining: " + String(gameLength)
+        startVC?.gameInProgress = true
+        timerLabel.text = "Time Remaining: " + String(startVC!.gameLength)
         updateScoreLabel()
-        setLabelVisibility(isGameOver: !gameInProgress)
+        setLabelVisibility(isGameOver: !(startVC!.gameInProgress))
         createProblem()
     }
     
@@ -53,81 +55,83 @@ class GameViewController: UIViewController {
     }
     
     func endGame() {
-        gameInProgress = false
-        if (gameTimer != nil) {
-            gameTimer?.invalidate()
+        startVC?.gameInProgress = false
+        if (startVC?.gameTimer != nil) {
+            startVC?.gameTimer?.invalidate()
         }
-        setLabelVisibility(isGameOver: !gameInProgress)
-        gameManagers?[gameTimeChoice][opChoice].addItem(matches: correct)
+        setLabelVisibility(isGameOver: !(startVC?.gameInProgress)!)
+        
+        startVC?.gameManagers![(startVC!.gameTimeChoice)][startVC!.opChoice].addItem(matches: startVC!.correct)
     }
     
     func createProblem() {
         //var prob : Problem?
-        switch(opChoice) {
+        switch(startVC?.opChoice) {
         case 0:
-            prob = AdditionProblem()
+            startVC?.prob = AdditionProblem()
             opLabel.text = "+"
         case 1:
-            prob = SubtractionProblem()
+            startVC?.prob = SubtractionProblem()
             opLabel.text = "-"
         case 2:
-            prob = MultiplicationProblem()
+            startVC?.prob = MultiplicationProblem()
             opLabel.text = "*"
         case 3:
-            prob = DivisionProblem()
+            startVC?.prob = DivisionProblem()
             opLabel.text = "/"
         case 4:
-            prob = ModulusProblem()
+            startVC?.prob = ModulusProblem()
             opLabel.text = "%"
         default:
-            prob = AdditionProblem()
+            startVC?.prob = AdditionProblem()
             opLabel.text = "+"
             break
         }
-        let lhsString : String? = String(prob!.lhs)
-        let rhsString : String? = String(prob!.rhs)
+        let lhsString : String? = String((startVC?.prob!.lhs)!)
+        let rhsString : String? = String((startVC?.prob!.rhs)!)
         lhsLabel.text = lhsString
         rhsLabel.text = rhsString
     }
     
-    func attemptSolveProblem(var guess : Int) -> Bool {
-        return (prob?.solve() == guess)
+    
+    func attemptSolveProblem(guess : Int) -> Bool { // took out 'var' before 'guess'
+        return (startVC?.prob?.solve() == guess)
     }
     
     func updateScoreLabel() {
-        scoreLabel.text = "Score: " + String(correct)
+        scoreLabel.text = "Score: " + String((startVC?.correct)!)
     }
     
     func solveProblem() {
         currentAnswerRef.text = ""
-        correct += 1
+        startVC?.correct += 1
         createProblem()
         updateScoreLabel()
     }
     
     @objc func tick() {
-        timeLeft -= 1
-        print(timeLeft)
-        if (timeLeft <= 0) {
+        startVC?.timeLeft -= 1
+        print(startVC?.timeLeft)
+        if (startVC!.timeLeft <= 0) {
             endGame()
         }
         else {
-            timerLabel.text = "Time Remaining: " + String(timeLeft)
+            timerLabel.text = "Time Remaining: " + String((startVC?.timeLeft)!)
         }
     }
     
     func resetTimer() {
-        if (gameTimer != nil) {
-            gameTimer?.invalidate()
+        if (startVC?.gameTimer != nil) {
+            startVC?.gameTimer?.invalidate()
         }
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        startVC?.gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
     }
     
     @IBAction func answerChanged(_ sender: UITextField) {
         let answer : Int? = Int(sender.text!)
         
         if (answer != nil) {
-            if (attemptSolveProblem(var: answer!)) {
+            if (attemptSolveProblem(guess: answer!)) {
                 solveProblem()
             }
         }
@@ -136,24 +140,10 @@ class GameViewController: UIViewController {
         
     }
     
-    
-    
-    @IBAction func backButton(_ sender: Any) {
-        gameTimer?.invalidate()
+    override func viewDidDisappear(_ animated: Bool) {
+        endGame()
     }
-    
-    
-    
-    var gameTimer : Timer? = nil
-    var timeLeft : Int = 0
-    let timeLimits : [Int] = [5, 60, 90]
-    var gameTimeChoice: Int = 0
-    var gameLength: Int = 60
-    var opChoice = Int()
-    var gameInProgress : Bool = false
-    var prob : Problem?
-    var gameManagers : [[GameManager]]?
-    var correct : Int = 0
+
     @IBOutlet weak var currentAnswerRef: UITextField!
     @IBOutlet weak var lhsLabel: UILabel!
     @IBOutlet weak var rhsLabel: UILabel!

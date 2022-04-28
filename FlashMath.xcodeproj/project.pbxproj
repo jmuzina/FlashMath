@@ -313,7 +313,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6ZZJDWK2CX;
+				DEVELOPMENT_TEAM = G962CP6U7G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlashMath/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -326,7 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Joe-Muzina--Parker-Fisher--James-Meyer.FlashMath";
+				PRODUCT_BUNDLE_IDENTIFIER = "Parker-Fisher.FlashMath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -341,7 +341,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6ZZJDWK2CX;
+				DEVELOPMENT_TEAM = G962CP6U7G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlashMath/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -354,7 +354,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Joe-Muzina--Parker-Fisher--James-Meyer.FlashMath";
+				PRODUCT_BUNDLE_IDENTIFIER = "Parker-Fisher.FlashMath";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
