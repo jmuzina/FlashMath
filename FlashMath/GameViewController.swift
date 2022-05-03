@@ -45,6 +45,7 @@ class GameViewController: UIViewController {
         updateScoreLabel()
         setLabelVisibility(isGameOver: !(startVC!.gameInProgress))
         createProblem()
+        currentAnswerRef.select(currentAnswerRef)
     }
     
     func setLabelVisibility(isGameOver :Bool) {
@@ -55,6 +56,7 @@ class GameViewController: UIViewController {
         currentAnswerRef.isHidden = isGameOver
         timerLabel.isHidden = isGameOver
         scoreLabel.isHidden = false
+        dividerRef.isHidden = isGameOver
         self.tabBarController?.tabBar.isHidden = !isGameOver
     }
     
@@ -117,7 +119,6 @@ class GameViewController: UIViewController {
         createProblem()
         updateScoreLabel()
         self.correctFeedbackRef.isHidden = false
-        print("showing correct feedback")
         UIView.animate(withDuration:FEEDBACK_TIME) {
             self.correctFeedbackRef.alpha = 1
         }
@@ -166,6 +167,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var correctFeedbackRef: UILabel!
+    @IBOutlet weak var dividerRef: UILabel!
     
     let FEEDBACK_TIME:Double = 0.3
 }

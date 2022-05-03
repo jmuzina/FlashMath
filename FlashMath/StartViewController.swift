@@ -41,19 +41,19 @@ class StartViewController: UIViewController {
             
             if (topScore!.score != -1) {
                 highScoreHeaderRef.isHidden = false
-                topScoreRef.text = "1) " + String(topScore!.score) + " (" + topScore!.difficulty + ")"
+                topScoreRef.text = "1)  " + String(topScore!.score) + " (" + topScore!.difficulty + ")"
                 topScoreRef.isHidden = false
                 
                 let secondScore:Item? = mgr.getItem(index: 1)
                 
                 if (secondScore!.score != -1) {
-                    secondScoreRef.text = "2) " + String(secondScore!.score) + " (" + secondScore!.difficulty + ")"
+                    secondScoreRef.text = "2)  " + String(secondScore!.score) + " (" + secondScore!.difficulty + ")"
                     secondScoreRef.isHidden = false
                     
                     let thirdScore:Item? = mgr.getItem(index: 2)
                     
                     if (thirdScore!.score != -1) {
-                        thirdScoreRef.text = "3) " + String(thirdScore!.score) + " (" + thirdScore!.difficulty + ")"
+                        thirdScoreRef.text = "3)  " + String(thirdScore!.score) + " (" + thirdScore!.difficulty + ")"
                         thirdScoreRef.isHidden = false
                     }
                     else {

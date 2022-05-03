@@ -15,7 +15,6 @@ class GameManager: NSObject {
         items.append(item)
 
         items.sort{
-            print($0, $1)
             return $0.score >= $1.score
         }
     }
