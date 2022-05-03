@@ -19,6 +19,7 @@
 		CE4006BC27ECFF7E00404F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4006BB27ECFF7E00404F68 /* Assets.xcassets */; };
 		CE4006BF27ECFF7E00404F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4006BD27ECFF7E00404F68 /* LaunchScreen.storyboard */; };
 		CE86F47127ED00E600D273FC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86F47027ED00E600D273FC /* Utility.swift */; };
+		CEBD92412821D8540025F66E /* answerEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD92402821D8540025F66E /* answerEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CE4006BE27ECFF7E00404F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE4006C027ECFF7E00404F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE86F47027ED00E600D273FC /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		CEBD92402821D8540025F66E /* answerEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = answerEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				47AC4FBE2811CC4600A1D1B8 /* Problem.swift */,
 				47AC4FBC2811C75300A1D1B8 /* GameViewController.swift */,
 				CE4006B827ECFF7C00404F68 /* Main.storyboard */,
+				CEBD92402821D8540025F66E /* answerEntry.swift */,
 				CE4006BB27ECFF7E00404F68 /* Assets.xcassets */,
 				CE4006BD27ECFF7E00404F68 /* LaunchScreen.storyboard */,
 				CE4006C027ECFF7E00404F68 /* Info.plist */,
@@ -158,6 +161,7 @@
 			files = (
 				CE1EFD862811D74200E247EA /* Model.swift in Sources */,
 				CE1EFD8A2811F0DD00E247EA /* Item.swift in Sources */,
+				CEBD92412821D8540025F66E /* answerEntry.swift in Sources */,
 				CE1EFD882811F0AC00E247EA /* GameManager.swift in Sources */,
 				47AC4FBD2811C75300A1D1B8 /* GameViewController.swift in Sources */,
 				47AC4FBF2811CC4600A1D1B8 /* Problem.swift in Sources */,

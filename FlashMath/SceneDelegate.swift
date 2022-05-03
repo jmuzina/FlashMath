@@ -50,3 +50,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension UITextField {
+    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    return false
+    }
+}

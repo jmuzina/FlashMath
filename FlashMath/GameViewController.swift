@@ -45,7 +45,8 @@ class GameViewController: UIViewController {
         updateScoreLabel()
         setLabelVisibility(isGameOver: !(startVC!.gameInProgress))
         createProblem()
-        currentAnswerRef.select(currentAnswerRef)
+
+        currentAnswerRef.select(self)
     }
     
     func setLabelVisibility(isGameOver :Bool) {
