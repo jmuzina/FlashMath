@@ -13,9 +13,12 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreLabel.isHidden = true
         // Do any additional setup after loading the view.
         //startVC = self.tabBarController?.viewControllers![0] as? StartViewController
-        startVC?.gameManagers = [[GameManager]]()
+        if (startVC?.gameManagers == nil) {
+            startVC?.gameManagers = [[GameManager]]()
+        }
         let numLimits: Int = (startVC?.timeLimits.count)!
         for (var i) in 0..<numLimits {
             startVC?.gameManagers?.append([GameManager]())
@@ -51,17 +54,20 @@ class GameViewController: UIViewController {
         opLabel.isHidden = isGameOver
         currentAnswerRef.isHidden = isGameOver
         timerLabel.isHidden = isGameOver
+        scoreLabel.isHidden = false
         self.tabBarController?.tabBar.isHidden = !isGameOver
     }
     
-    func endGame() {
+    func endGame(shouldUpdateScores: Bool = false) {
         startVC?.gameInProgress = false
         if (startVC?.gameTimer != nil) {
             startVC?.gameTimer?.invalidate()
         }
         setLabelVisibility(isGameOver: !(startVC?.gameInProgress)!)
         
-        startVC?.gameManagers![(startVC!.gameTimeChoice)][startVC!.opChoice].addItem(matches: startVC!.correct, diff: startVC!.difficultyStrings[startVC!.difficultyChoice])
+        if (shouldUpdateScores == true) {
+            startVC?.gameManagers![(startVC!.gameTimeChoice)][startVC!.opChoice].addItem(matches: startVC!.correct, diff: startVC!.difficultyStrings[startVC!.difficultyChoice])
+        }
     }
     
     func createProblem() {
@@ -112,9 +118,8 @@ class GameViewController: UIViewController {
     
     @objc func tick() {
         startVC?.timeLeft -= 1
-        print(startVC?.timeLeft)
         if (startVC!.timeLeft <= 0) {
-            endGame()
+            endGame(shouldUpdateScores: false)
         }
         else {
             timerLabel.text = "Time Remaining: " + String((startVC?.timeLeft)!)
@@ -142,7 +147,8 @@ class GameViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        endGame()
+        endGame(shouldUpdateScores: true)
+        startVC?.updateTopScores()
     }
 
     @IBOutlet weak var currentAnswerRef: UITextField!

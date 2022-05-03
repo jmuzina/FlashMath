@@ -11,12 +11,10 @@ class StartViewController: UIViewController {
     // Game Time
     @IBOutlet weak var gameTime: UISegmentedControl!
     @IBAction func gameTimeChanged(_ sender: UISegmentedControl) {
-        //gameVC!.gameTimeChoice = gameVC!.timeLimits[sender.selectedSegmentIndex]
-        
         gameTimeChoice = sender.selectedSegmentIndex
         gameLength = timeLimits[gameTimeChoice]
-        print("Time changed to", String(gameLength))
         
+        updateTopScores()
     }
     
     
@@ -25,15 +23,55 @@ class StartViewController: UIViewController {
     @IBAction func operatorChoice(_ sender: UISegmentedControl) {
         
         opChoice = sender.selectedSegmentIndex
-        print("Operator changed", String(opChoice))
-        
+    
         opChoice = sender.selectedSegmentIndex
-        print("Operator changed", String(opChoice))
+        
+        updateTopScores()
     }
     
     @IBOutlet weak var diffChoice: UISegmentedControl!
     @IBAction func diffChoice(_ sender: UISegmentedControl) {
         difficultyChoice = sender.selectedSegmentIndex
+    }
+    
+    func updateTopScores() {
+        if (gameManagers != nil) {
+            let mgr: GameManager = gameManagers![(gameTimeChoice)][opChoice]
+            let topScore:Item? = mgr.getItem(index: 0)
+            
+            if (topScore!.score != -1) {
+                highScoreHeaderRef.isHidden = false
+                topScoreRef.text = "1) " + String(topScore!.score) + " (" + topScore!.difficulty + ")"
+                topScoreRef.isHidden = false
+                
+                let secondScore:Item? = mgr.getItem(index: 1)
+                
+                if (secondScore!.score != -1) {
+                    secondScoreRef.text = "2) " + String(secondScore!.score) + " (" + secondScore!.difficulty + ")"
+                    secondScoreRef.isHidden = false
+                    
+                    let thirdScore:Item? = mgr.getItem(index: 2)
+                    
+                    if (thirdScore!.score != -1) {
+                        thirdScoreRef.text = "3) " + String(thirdScore!.score) + " (" + thirdScore!.difficulty + ")"
+                        thirdScoreRef.isHidden = false
+                    }
+                    else {
+                        thirdScoreRef.isHidden = true
+                    }
+                }
+                else {
+                    secondScoreRef.isHidden = true
+                    thirdScoreRef.isHidden = true
+                }
+            }
+            else {
+                highScoreHeaderRef.isHidden = true
+                topScoreRef.isHidden = true
+                secondScoreRef.isHidden = true
+                thirdScoreRef.isHidden = true
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -43,16 +81,21 @@ class StartViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // The destination view controller exists at this point
-        print("StartScene \(#function)", segue.destination)
         
         let dest = segue.destination as! GameViewController
         dest.startVC = self
+        
+        
          
     }
-        
+    @IBOutlet weak var highScoreHeaderRef: UILabel!
+    @IBOutlet weak var topScoreRef: UILabel!
+    @IBOutlet weak var secondScoreRef: UILabel!
+    @IBOutlet weak var thirdScoreRef: UILabel!
+    
     var gameTimer : Timer? = nil
     var timeLeft : Int = 0
-    let timeLimits : [Int] = [5, 60, 90]
+    let timeLimits : [Int] = [30, 60, 90]
     var gameTimeChoice: Int = 0
     var gameLength: Int = 60
     var opChoice = Int()

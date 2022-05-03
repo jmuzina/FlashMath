@@ -11,14 +11,21 @@ class GameManager: NSObject {
     private var items = [Item]()
     func addItem(matches : Int, diff : String) {
         let item = Item(score:matches, difficulty: diff)
+
         items.append(item)
 
         items.sort{
+            print($0, $1)
             return $0.score >= $1.score
         }
     }
     func getItem(index : Int) -> Item {
-        return items[index]
+        if (index < itemsCount()) {
+            return items[index]
+        }
+        else {
+            return Item(score:-1, difficulty:"")
+        }
     }
     func setItem(_ item: Item, number index: Int) {
         items[index] = item
