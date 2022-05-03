@@ -101,7 +101,9 @@ class GameViewController: UIViewController {
     }
     
     
-    func attemptSolveProblem(guess : Int) -> Bool { // took out 'var' before 'guess'
+    func attemptSolveProblem(guess : Int) -> Bool {
+        correctFeedbackRef.alpha = 0
+        correctFeedbackRef.isHidden = true
         return (startVC?.prob?.solve() == guess)
     }
     
@@ -114,6 +116,11 @@ class GameViewController: UIViewController {
         startVC?.correct += 1
         createProblem()
         updateScoreLabel()
+        self.correctFeedbackRef.isHidden = false
+        print("showing correct feedback")
+        UIView.animate(withDuration:FEEDBACK_TIME) {
+            self.correctFeedbackRef.alpha = 1
+        }
     }
     
     @objc func tick() {
@@ -158,4 +165,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameOverLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var correctFeedbackRef: UILabel!
+    
+    let FEEDBACK_TIME:Double = 0.3
 }

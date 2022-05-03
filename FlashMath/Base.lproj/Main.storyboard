@@ -212,6 +212,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxK-Rf-lA0">
+                                <rect key="frame" x="336" y="431" width="32" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ymT-B3-GFn"/>
                         <color key="backgroundColor" red="0.7803921568627451" green="0.603032016973294" blue="0.31708040914890823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -219,6 +226,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="9Ec-S0-0TL"/>
                     <navigationItem key="navigationItem" id="pzi-Gw-6uQ"/>
                     <connections>
+                        <outlet property="correctFeedbackRef" destination="zxK-Rf-lA0" id="5Am-OT-PxT"/>
                         <outlet property="currentAnswerRef" destination="yCl-Cu-F9K" id="Agk-oy-3p4"/>
                         <outlet property="gameOverLabel" destination="wKm-zZ-f8k" id="yxb-LU-g7m"/>
                         <outlet property="lhsLabel" destination="Fr4-Sq-vyN" id="niH-no-ZLP"/>
